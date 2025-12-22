@@ -1,10 +1,16 @@
 import React from 'react'
+// import { Routes } from 'react-router-dom'
+import Navbar from './components/Navbar'
 
 const App = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+    <Navbar />
+      {/* <Routes>
+
+
+      </Routes> */}
+    </>
   )
 }
 
