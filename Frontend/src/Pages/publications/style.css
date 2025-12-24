@@ -1,3 +1,8 @@
+:root{
+  --pri-color: #191970;
+  --gold: #ffc400;
+}
+
 .flex{
 display: flex;
 align-items: center;
