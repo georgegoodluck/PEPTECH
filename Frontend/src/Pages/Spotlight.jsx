@@ -4,52 +4,52 @@ const Spotlight = () => {
   const spotlightPeople = [
     {
       id: 1,
-      name: "Dr. Adebayo Okonkwo",
-      achievement: "Breakthrough in Quantum Computing",
+      name: "Prof. Felix Olise",
+      achievement: "Breakthrough in Theoretical Quantum physics",
       description: "Led the team that achieved quantum supremacy with a 1000-qubit processor, opening new frontiers in computational science.",
       image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
       category: "Quantum Physics"
     },
     {
       id: 2,
-      name: "Prof. Chioma Nwankwo",
-      achievement: "Revolutionary Clean Energy Solution",
-      description: "Developed an affordable solar technology that increased efficiency by 300%, making renewable energy accessible to underserved communities.",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop",
-      category: "Applied Physics"
-    },
-    {
-      id: 3,
-      name: "Dr. Ibrahim Musa",
-      achievement: "Nanotechnology Pioneer",
-      description: "Revolutionized materials science with breakthrough discoveries in nanoscale engineering and their applications in modern technology.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-      category: "Materials Science"
-    },
-    {
-      id: 4,
-      name: "Prof. Ngozi Adeyemi",
-      achievement: "Astrophysics Excellence",
-      description: "Pioneered new methods in stellar evolution research, contributing to our understanding of the universe's formation and development.",
-      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop",
-      category: "Astrophysics"
-    },
-    {
-      id: 5,
-      name: "Dr. Emeka Okafor",
-      achievement: "Medical Physics Innovation",
-      description: "Developed advanced imaging techniques that improved cancer detection rates by 85%, saving countless lives worldwide.",
+      name: "Prof. Owoade",
+      achievement: "Thermodynamics pioneer", 
+      description: "Groundbreaking research in thermodynamics, enhancing energy efficiency in industrial processes.",
       image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=400&h=400&fit=crop",
       category: "Medical Physics"
     },
     {
-      id: 6,
-      name: "Prof. Fatima Yusuf",
-      achievement: "Computational Physics Leader",
-      description: "Advanced machine learning algorithms for complex physics simulations, accelerating research across multiple disciplines.",
+      id: 3,
+      name: "Prof. Akinwumi",
+      achievement: "Materials Science Innovator",
+      description: "Pioneered new materials with unique properties for technological advancements.",
       image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=400&fit=crop",
       category: "Computational Physics"
-    }
+    },
+    {
+      id: 4,
+      name: "Mr. Ayomide Olabode",
+      achievement: "Revolutionary in Astronomical Research",
+      description: "Developed advanced techniques in observational astronomy, leading to the discovery of new celestial phenomena.",
+      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop",
+      category: "Applied Physics"
+    },
+    {
+      id: 5,
+      name: "Mr. Adigun Oreoluwa ",
+      achievement: "Innovator in Energy Materials",
+      description: "Revolutionized energy storage solutions with breakthrough battery technology.",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      category: "Materials Science"
+    },
+    {
+      id: 6,
+      name: "Mr. George Okikiola", 
+      achievement: "Material Science Pioneer",
+      description: "Developed innovative materials for advanced engineering applications.",
+      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop",
+      category: "Astrophysics"
+    },
   ];
 
   return (
