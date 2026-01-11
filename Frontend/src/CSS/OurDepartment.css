@@ -2,71 +2,114 @@
 
 @theme {
   --color-midnight: #001529;
-  --color-midnight-light: #002140;
   --color-gold: #d4af37;
 }
 
-/* --- Global Container --- */
+:root {
+  background-color: #001529;
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-midnight min-h-screen m-0 p-0 text-white;
+}
+
+/* --- Fixed Blueprint Background --- */
 .department-container {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  @apply py-24 px-6 overflow-x-hidden;
   background: radial-gradient(circle at top right, #002140, #001529);
-  @apply text-white min-h-screen py-24 px-6 overflow-x-hidden;
 }
 
-/* --- History Section: Tight Proximity --- */
+.department-container::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.15;
+  /* Subtle grid for professional look */
+  background-image:
+    linear-gradient(rgba(212, 175, 55, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* --- History Section --- */
 .history-grid {
-  @apply flex flex-col gap-6 items-center max-w-3xl mx-auto;
+  @apply flex flex-col gap-12 items-center max-w-7xl mx-auto relative z-10;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .history-grid {
-    @apply flex-row items-start justify-center;
+    @apply flex-row items-center justify-between;
   }
 }
 
 .main-image-wrapper {
   border: 2px solid var(--color-gold);
-  @apply w-full h-[300px] shrink-0 overflow-hidden rounded-lg shadow-2xl;
+  @apply w-full shrink-0 overflow-hidden rounded-lg shadow-xl;
+  max-width: 550px;
+  aspect-ratio: 3 / 2;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .main-image-wrapper {
-    @apply w-[320px]; 
+    width: 520px;
   }
 }
 
 .history-text-container {
-  @apply flex-1 text-justify max-w-md;
+  @apply flex-1 text-justify;
 }
 
-/* --- Timeline: The Golden Thread --- */
+@media (min-width: 1024px) {
+  .history-text-container {
+    @apply pl-16;
+    max-width: 650px;
+  }
+}
+
+/* --- Professional Timeline --- */
 .timeline-center-line {
   background-color: var(--color-gold);
   width: 2px;
-  opacity: 0.6;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  transform: translateX(-50%);
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  @apply absolute top-0 bottom-0 opacity-40 -translate-x-1/2;
 }
 
 @media (min-width: 768px) {
-  .timeline-center-line { left: 50%; }
+  .timeline-center-line {
+    left: 50%;
+  }
 }
 
 @media (max-width: 767px) {
-  .timeline-center-line { left: 2rem; }
+  .timeline-center-line {
+    left: 2rem;
+  }
 }
 
-/* --- Achievement Cards: Anti-Shrink Fix --- */
 .achievement-glass {
-  background: rgba(0, 33, 64, 0.85);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  min-width: 260px; 
-  @apply p-8 rounded-xl relative shadow-2xl;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  @apply p-6 rounded-lg relative transition-all duration-300;
 }
 
-.gold-bracket-accent {
-  @apply absolute right-0 top-0 bottom-0 w-1 bg-gold opacity-80;
+.shimmer-text {
+  @apply text-white;
+  /* Removed excessive shining for a clean look */
+}
+
+/* Static Reveal for Professionalism */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
 }
