@@ -6,77 +6,67 @@
   --color-gold: #d4af37;
 }
 
+/* --- Global Container --- */
 .department-container {
-  background-color: var(--color-midnight);
-  @apply text-white min-h-screen py-20 px-6 overflow-x-hidden;
+  background: radial-gradient(circle at top right, #002140, #001529);
+  @apply text-white min-h-screen py-24 px-6 overflow-x-hidden;
 }
 
+/* --- History Section: Tight Proximity --- */
 .history-grid {
-  /* This ensures the image and text sit side-by-side on desktop */
-  @apply flex flex-col md:flex-row gap-12 items-start max-w-6xl mx-auto;
+  @apply flex flex-col gap-6 items-center max-w-3xl mx-auto;
+}
+
+@media (min-width: 768px) {
+  .history-grid {
+    @apply flex-row items-start justify-center;
+  }
 }
 
 .main-image-wrapper {
-  /* 1. Set a specific width so it doesn't take the whole screen */
-  /* 2. shrink-0 is VITAL: it prevents the flexbox from squishing the image */
-  @apply w-full md:w-112.5 h-87.5 shrink-0 overflow-hidden rounded-sm;
-  border: 1px solid var(--color-gold);
+  border: 2px solid var(--color-gold);
+  @apply w-full h-[300px] shrink-0 overflow-hidden rounded-lg shadow-2xl;
 }
 
-.history-text {
-  /* flex-1 tells the text to take up all remaining space next to the image */
-  @apply text-gray-400 text-lg leading-relaxed flex-1 text-justify;
+@media (min-width: 768px) {
+  .main-image-wrapper {
+    @apply w-[320px]; 
+  }
 }
 
-/* Timeline Stage */
-.vertical-timeline-container {
-  @apply relative max-w-6xl mx-auto py-10;
+.history-text-container {
+  @apply flex-1 text-justify max-w-md;
 }
 
-/* The Fixed Central Axis */
+/* --- Timeline: The Golden Thread --- */
 .timeline-center-line {
   background-color: var(--color-gold);
-  /* Fixed at 50% left on desktop */
-  @apply absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 opacity-30 -translate-x-1/2;
+  width: 2px;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  transform: translateX(-50%);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
 }
 
-.timeline-items-vertical {
-  @apply space-y-32; /* Increased spacing to prevent overlapping */
+@media (min-width: 768px) {
+  .timeline-center-line { left: 50%; }
 }
 
-.timeline-row {
-  /* Relative is vital here so the icon anchors to this row */
-  @apply relative flex items-center w-full min-h-37.5;
+@media (max-width: 767px) {
+  .timeline-center-line { left: 2rem; }
 }
 
-/* Column logic to prevent scattering */
-.timeline-card-col,
-.timeline-year-col {
-  @apply md:w-1/2 w-full px-8 md:px-16;
+/* --- Achievement Cards: Anti-Shrink Fix --- */
+.achievement-glass {
+  background: rgba(0, 33, 64, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  min-width: 260px; 
+  @apply p-8 rounded-xl relative shadow-2xl;
 }
 
-/* SANSA Card Style */
-.timeline-card {
-  background-color: var(--color-midnight-light);
-  border-left: 4px solid var(--color-gold);
-  @apply p-6 rounded-sm relative shadow-2xl;
-}
-
-.bracket-accent {
-  border-top: 1px solid var(--color-gold);
-  border-bottom: 1px solid var(--color-gold);
-  @apply absolute top-0 bottom-0 -left-1 w-1;
-}
-
-/* Center Icon - Locked to the center line */
-.timeline-icon-container {
-  @apply absolute left-4 md:left-1/2 -translate-x-1/2 flex items-center justify-center z-10;
-}
-
-.timeline-icon-circle {
-  border: 2px solid var(--color-gold);
-  color: var(--color-gold);
-  background-color: var(--color-midnight);
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
-  @apply w-10 h-10 rounded-full flex items-center justify-center;
+.gold-bracket-accent {
+  @apply absolute right-0 top-0 bottom-0 w-1 bg-gold opacity-80;
 }

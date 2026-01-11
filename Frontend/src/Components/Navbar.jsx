@@ -34,16 +34,17 @@ const Navbar = () => {
       path: '/',
       hasDropdown: false
     },
+    // Inside Navbar.js -> navItems array
     {
       name: 'Our Department',
       path: '/our-department',
       hasDropdown: true,
       submenu: [
-        { name: 'Our History', path: '/our-department' },
-        { name: 'Past Leadership', path: '/our-department' },
-        { name: 'Our Mission', path: '/our-department' },
-        { name: "HOD's Roll of Honour", path: '/our-department' },
-        { name: 'Departmental History Museum Gallery', path: '/our-department' },
+        { name: 'Our History', path: '/our-department#history' },
+        { name: 'Past Leadership', path: '/our-department#leadership' },
+        { name: 'Our Mission', path: '/our-department#mission' },
+        { name: "HOD's Roll of Honour", path: '/our-department#honour' },
+        { name: 'Departmental History Museum Gallery', path: '/our-department#gallery' },
       ]
     },
     {
@@ -97,9 +98,8 @@ const Navbar = () => {
       <div className="sticky top-0 z-50">
         {/* Top Bar - External Links Only (Disappears on scroll) */}
         <div
-          className={`bg-white border-b-2 border-amber-400 shadow-sm transition-all duration-300 ${
-            isScrolled ? 'max-h-0 opacity-0 overflow-hidden' : 'max-h-20'
-          }`}
+          className={`bg-white border-b-2 border-amber-400 shadow-sm transition-all duration-300 ${isScrolled ? 'max-h-0 opacity-0 overflow-hidden' : 'max-h-20'
+            }`}
         >
           <div className="px-4 sm:px-6 lg:px-8 py-3">
             <div className="flex items-center justify-center sm:justify-end gap-3 sm:gap-4 flex-wrap">
@@ -138,7 +138,7 @@ const Navbar = () => {
                 {/* <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center shadow-lg border-2 border-white">
                   <span className="text-lg sm:text-xl font-bold text-blue-950">P</span>
                 </div> */}
-                  <img src="/images/peplogo.png" alt="" className='w-14 h-14'/>
+                <img src="/images/peplogo.png" alt="" className='w-14 h-14' />
                 <div className="hidden sm:block">
                   <h1 className="text-sm sm:text-base lg:text-lg font-bold text-white">
                     Department of Physics
@@ -242,23 +242,20 @@ const Navbar = () => {
 
       {/* Mobile Navigation - Overlay */}
       <div
-        className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ${
-          isMenuOpen ? 'visible' : 'invisible'
-        }`}
+        className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ${isMenuOpen ? 'visible' : 'invisible'
+          }`}
       >
         {/* Backdrop */}
         <div
-          className={`absolute inset-0 bg-black transition-opacity duration-300 ${
-            isMenuOpen ? 'opacity-50' : 'opacity-0'
-          }`}
+          className={`absolute inset-0 bg-black transition-opacity duration-300 ${isMenuOpen ? 'opacity-50' : 'opacity-0'
+            }`}
           onClick={toggleMenu}
         />
 
         {/* Menu Panel */}
         <div
-          className={`absolute top-16 lg:top-20 left-0 right-0 bg-gradient-to-b from-blue-900 to-blue-950 shadow-2xl transition-transform duration-300 ${
-            isMenuOpen ? 'translate-y-0' : '-translate-y-full'
-          }`}
+          className={`absolute top-16 lg:top-20 left-0 right-0 bg-gradient-to-b from-blue-900 to-blue-950 shadow-2xl transition-transform duration-300 ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'
+            }`}
         >
           <div className="px-3 sm:px-4 py-4 space-y-2 overflow-y-auto max-h-[calc(100vh-5rem)]">
             {navItems.map((item) => (
@@ -270,9 +267,8 @@ const Navbar = () => {
                   >
                     <span>{item.name}</span>
                     <IoChevronDown
-                      className={`w-5 h-5 text-amber-400 transition-transform duration-300 ${
-                        activeDropdown === item.name ? 'rotate-180' : ''
-                      }`}
+                      className={`w-5 h-5 text-amber-400 transition-transform duration-300 ${activeDropdown === item.name ? 'rotate-180' : ''
+                        }`}
                     />
                   </button>
                 ) : (
@@ -288,9 +284,8 @@ const Navbar = () => {
                 {/* Mobile Dropdown */}
                 {item.hasDropdown && (
                   <div
-                    className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                      activeDropdown === item.name ? 'max-h-[1000px] opacity-100 mt-2' : 'max-h-0 opacity-0'
-                    }`}
+                    className={`transition-all duration-300 ease-in-out overflow-hidden ${activeDropdown === item.name ? 'max-h-[1000px] opacity-100 mt-2' : 'max-h-0 opacity-0'
+                      }`}
                   >
                     <div className="pl-2 space-y-1.5 bg-blue-800/30 rounded-lg p-3 border border-amber-500/20">
                       {item.submenu.map((subItem) => (
